@@ -1,0 +1,13 @@
+$values: (
+    none,
+    inline,
+    block,
+    inline-block,
+    flex
+);
+
+@each $val in $values {
+    .#{$val} {
+        display: $val;
+    }
+}

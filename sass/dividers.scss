@@ -1,0 +1,27 @@
+$divider-color: #5A5E66;
+$dividers: (
+	xs: 5px,
+	sm: 10px,
+	md: 20px,
+    lg: 30px,
+    xl: 40px
+);
+
+@each $class, $value in $dividers {
+	.spacer-#{$class} {
+        height: $value;
+        width: 100%;
+    }
+    .divider-#{$class} {
+        height: 1px;
+        border-bottom: 1px solid #5A5E66;
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    .divider-#{$class}--tabbed {
+        @extend .divider-#{$class};
+        margin-right: $value;
+        margin-left: $value;
+    }
+}

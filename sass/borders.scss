@@ -1,0 +1,24 @@
+$directions: ("top", "bottom", "left", "right");
+$borderColor: black;
+$borderColorLight: grey;
+$sizes: (1, 2, 3);
+
+@each $size in $sizes {
+    @each $direction in $directions {
+        $directionLetter: str-slice($direction, 0, 1);
+        .b#{$directionLetter}-#{$size} {
+            border-#{$direction}: #{$size}px solid $borderColor;
+        }
+        .b#{$directionLetter}-#{$size}--light {
+            border-#{$direction}: #{$size}px solid $borderColorLight;
+        }
+    }
+    .b-#{$size} {
+        border: #{$size}px solid $borderColor;
+    }
+    .b-#{$size}--light {
+        border: #{$size}px solid $borderColorLight;
+    }
+}
+
+

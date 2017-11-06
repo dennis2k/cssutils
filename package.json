@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-cssmin": "^0.2.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sass-glob": "^1.0.8",
+        "gulp-watch": "^4.3.11"
+    }
+}

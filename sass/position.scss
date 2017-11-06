@@ -1,0 +1,11 @@
+$values: (
+    absolute,
+    fixed,
+    relative
+);
+
+@each $val in $values {
+    .#{$val} {
+        position: $val;
+    }
+}

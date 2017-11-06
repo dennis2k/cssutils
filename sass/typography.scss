@@ -1,0 +1,39 @@
+$sizes: (
+	3rem,
+	2.5rem,
+	2rem,
+	1.5rem,
+	1.25rem,
+	0.875rem
+);
+
+@each $value in $sizes {
+	$i: index($sizes, $value);
+	.h#{$i} {
+		font-size: $value
+	}
+}
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+.text-regular {
+    color: #2D2F33;
+}
+.text-secondary {
+    color: #5A5E66;
+}
+.text-light {
+    color: #878D99;
+}
+.text-placeholder {
+    color: #B4BCCC;
+}

@@ -1,0 +1,16 @@
+$map: (
+    primary: #409EFF,
+    success: #67C23A,
+    warning: #EB9E05,
+    danger: #FA5555,
+    info: #878D99
+);
+
+@each $color, $value in $map {
+    .bg-#{$color} {
+        background: $value;
+    }
+    .text-#{$color} {
+        color: $value;
+    }
+}
