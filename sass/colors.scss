@@ -1,12 +1,15 @@
-$map: (
+$colors: (
     primary: #409EFF,
     success: #67C23A,
     warning: #EB9E05,
     danger: #FA5555,
-    info: #878D99
+    info: #878D99,
+    dark: #000,
+    white: #FFFF,
+    light: rgb(235, 237, 241)
 );
 
-@each $color, $value in $map {
+@each $color, $value in $colors {
     .bg-#{$color} {
         background: $value;
     }

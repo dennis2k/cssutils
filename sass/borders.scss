@@ -1,9 +1,10 @@
-$directions: ("top", "bottom", "left", "right");
+@import "_variables";
+
+$borderSizes: (1, 2, 3);
 $borderColor: black;
 $borderColorLight: grey;
-$sizes: (1, 2, 3);
 
-@each $size in $sizes {
+@each $size in $borderSizes {
     @each $direction in $directions {
         $directionLetter: str-slice($direction, 0, 1);
         .b#{$directionLetter}-#{$size} {

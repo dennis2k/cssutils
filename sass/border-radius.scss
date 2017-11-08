@@ -1,13 +1,12 @@
-$border-radius: (
-	xs: 0.125rem,
-	sm: 0.25rem,
-	md: 0.5rem,
-	lg: 1rem,
+$borderRadius: (
+	1: 0.125rem,
+	2: 0.25rem,
+	3: 0.5rem,
+	4: 1rem,
 	circle: 100%
 );
-
-@each $class, $value in $border-radius {
-	.br-#{$class} {
+@each $class, $value in $borderRadius {
+	.brs-#{$class} {
 		border-radius: $value;
 	}
 }

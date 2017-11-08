@@ -1,13 +1,19 @@
-$values: (
-    none,
-    inline,
-    block,
-    inline-block,
-    flex
-);
+@import "_variables";
+@import "media";
 
-@each $val in $values {
-    .#{$val} {
-        display: $val;
+$displays: ( dn: none, di: inline, db: block, dib: inline-block);
+
+@mixin render($valueMap, $screen: "") {
+    @each $class,$value in $valueMap {
+        .#{$class}#{$screen} {
+            display: $value;
+        }
+    }
+}
+
+@include render($displays);
+@each $screen in $screens {
+    @include breakpoint($screen) {
+        @include render($displays, "-#{$screen}");
     }
 }

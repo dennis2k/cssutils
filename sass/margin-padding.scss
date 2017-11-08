@@ -1,23 +1,32 @@
-$mp-directions: ("top", "bottom", "left", "right");
-$mp-sizes: ("xs", "sm", "md", "lg", "xl");
-$mp-sizes-values: (2, 5, 10, 20, 30);
+@import "variables";
+@import "media";
 
-@each $size in $mp-sizes {
-	$sizeIndex: index($mp-sizes, $size);
-	$value: nth($mp-sizes-values, $sizeIndex);
-	@each $direction in $mp-directions {
-		$directionLetter: str-slice($direction, 0, 1);
-		.m#{$directionLetter}-#{$size} {
-			margin-#{$direction}: #{$value}px;
+$marginPaddingValueMap: ( 1: 2, 2: 5, 3: 10, 4: 20, 5: 30);
+
+@mixin render($valueMap, $directions, $screen: "") {
+	@each $valueIndex,
+	$value in $valueMap {
+		@each $direction in $directions {
+			$directionLetter: str-slice($direction, 0, 1);
+			.m#{$directionLetter}-#{$valueIndex}#{$screen} {
+				margin-#{$direction}: #{$value}px;
+			}
+			.p#{$directionLetter}-#{$valueIndex}#{$screen} {
+				padding-#{$direction}: #{$value}px;
+			}
 		}
-		.p#{$directionLetter}-#{$size} {
-			padding-#{$direction}: #{$value}px;
+		.m-#{$valueIndex}#{$screen} {
+			margin: #{$value}px;
+		}
+		.p-#{$valueIndex}#{$screen} {
+			padding: #{$value}px;
 		}
 	}
-	.m-#{$size} {
-		margin: #{$value}px;
-	}
-	.p-#{$size} {
-		padding: #{$value}px;
+}
+
+@include render($marginPaddingValueMap, $directions);
+@each $screen in $screens {
+	@include breakpoint(#{$screen}) {
+		@include render($marginPaddingValueMap, $directions, "-#{$screen}");
 	}
 }

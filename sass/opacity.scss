@@ -1,0 +1,12 @@
+$opacities: (
+	1: 0.80,
+	2: 0.60,
+	3: 0.40,
+    4: 0.20,
+    5: 0
+);
+@each $class, $value in $opacities {
+	.o-#{$class} {
+		opacity: $value;
+	}
+}

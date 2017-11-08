@@ -6,6 +6,7 @@ var sassGlob = require("gulp-sass-glob");
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
+var gzip = require("gulp-gzip");
 
 gulp.task('default', function () {
     return gulp.src('./sass/*.scss')
@@ -14,6 +15,7 @@ gulp.task('default', function () {
         .pipe(gulp.dest('./'))
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
+        .pipe(gzip())
         .pipe(gulp.dest('./'));
 });
 

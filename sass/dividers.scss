@@ -1,27 +1,38 @@
-$divider-color: #5A5E66;
-$dividers: (
-	xs: 5px,
-	sm: 10px,
-	md: 20px,
-    lg: 30px,
-    xl: 40px
+@import "variables";
+@import "_media";
+
+
+$dividerColor: #5A5E66;
+$dividersMap: (
+	1: 10px,
+	2: 20px,
+	3: 30px,
+    4: 40px,
+    5: 50px
 );
 
-@each $class, $value in $dividers {
-	.spacer-#{$class} {
-        height: $value;
-        width: 100%;
+@mixin render($valueMap, $screen: "") {
+    @each $class, $value in $valueMap {
+        .spacer-#{$class}#{$screen} {
+            height: $value;
+            width: 100%;
+        }
+        .divider-#{$class}#{$screen} {
+            height: 1px;
+            border-bottom: 1px solid $dividerColor;
+            margin-top: $value;
+            margin-bottom: $value;
+        }
+        .divider-#{$class}#{$screen}--tabbed {
+            @extend .divider-#{$class}#{$screen};
+            margin-right: $value;
+            margin-left: $value;
+        }
     }
-    .divider-#{$class} {
-        height: 1px;
-        border-bottom: 1px solid #5A5E66;
-        margin-top: $value;
-        margin-bottom: $value;
-    }
-
-    .divider-#{$class}--tabbed {
-        @extend .divider-#{$class};
-        margin-right: $value;
-        margin-left: $value;
+}
+@include render($dividersMap);
+@each $screen in $screens {
+    @include breakpoint(#{$screen}) {
+        @include render($dividersMap, "-#{$screen}");
     }
 }

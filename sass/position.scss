@@ -1,10 +1,10 @@
-$values: (
+$positions: (
     absolute,
     fixed,
     relative
 );
 
-@each $val in $values {
+@each $val in $positions {
     .#{$val} {
         position: $val;
     }
