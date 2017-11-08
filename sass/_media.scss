@@ -1,5 +1,3 @@
-@import "variables";
-
 @mixin breakpoint($class) {
     @if $class == xs {
         @media only screen and (max-width : 480px) {

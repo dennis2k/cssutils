@@ -1,0 +1,9 @@
+@import "_variables";
+
+@mixin renderDisplays($valueMap, $screen: "") {
+    @each $class,$value in $valueMap {
+        .#{$class}#{$screen} {
+            display: $value;
+        }
+    }
+}

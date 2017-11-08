@@ -1,9 +1,6 @@
 @import "variables";
-@import "media";
 
-$marginPaddingValueMap: ( 1: 2, 2: 5, 3: 10, 4: 20, 5: 30);
-
-@mixin render($valueMap, $directions, $screen: "") {
+@mixin renderMarginAndPaddings($valueMap, $directions, $screen: "") {
 	@each $valueIndex,
 	$value in $valueMap {
 		@each $direction in $directions {
@@ -21,12 +18,5 @@ $marginPaddingValueMap: ( 1: 2, 2: 5, 3: 10, 4: 20, 5: 30);
 		.p-#{$valueIndex}#{$screen} {
 			padding: #{$value}px;
 		}
-	}
-}
-
-@include render($marginPaddingValueMap, $directions);
-@each $screen in $screens {
-	@include breakpoint(#{$screen}) {
-		@include render($marginPaddingValueMap, $directions, "-#{$screen}");
 	}
 }

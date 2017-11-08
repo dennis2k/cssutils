@@ -1,17 +1,6 @@
 @import "variables";
-@import "_media";
 
-
-$dividerColor: #5A5E66;
-$dividersMap: (
-	1: 10px,
-	2: 20px,
-	3: 30px,
-    4: 40px,
-    5: 50px
-);
-
-@mixin render($valueMap, $screen: "") {
+@mixin renderDividers($valueMap, $screen: "") {
     @each $class, $value in $valueMap {
         .spacer-#{$class}#{$screen} {
             height: $value;
@@ -28,11 +17,5 @@ $dividersMap: (
             margin-right: $value;
             margin-left: $value;
         }
-    }
-}
-@include render($dividersMap);
-@each $screen in $screens {
-    @include breakpoint(#{$screen}) {
-        @include render($dividersMap, "-#{$screen}");
     }
 }

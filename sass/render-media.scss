@@ -1,0 +1,12 @@
+@import "variables";
+@import "media";
+@import "display";
+@import "dividers";
+@import "margin-padding";
+@each $screen in $screens {
+    @include breakpoint($screen) {
+        $screenValue: "-#{$screen}";
+        @include renderDisplays($displays, $screenValue);
+        @include renderDividers($displays, $screenValue);
+    }
+}
