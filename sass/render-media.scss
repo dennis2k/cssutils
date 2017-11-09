@@ -8,5 +8,6 @@
         $screenValue: "-#{$screen}";
         @include renderDisplays($displays, $screenValue);
         @include renderDividers($displays, $screenValue);
+        @include renderMarginAndPaddings($marginPaddingValueMap, $directions);        
     }
 }
